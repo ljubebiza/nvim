@@ -1,4 +1,4 @@
-vim.cmd( "let g:netrw_liststyle = 3" )
+vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
@@ -12,13 +12,11 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy ident from current line when starting new one
 
-
 opt.wrap = false
 
 -- search settings
 opt.ignorecase = true --ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-
 
 opt.cursorline = true
 

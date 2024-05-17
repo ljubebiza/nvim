@@ -2,8 +2,7 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
-keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with space jk" })
-
+keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode" })
 keymap.set("n", "<leader>nh", ":nohl<cr>", { desc = "Clear search highlights" })
 
 -- increment/decrement numbers
