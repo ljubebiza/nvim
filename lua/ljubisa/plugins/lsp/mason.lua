@@ -39,6 +39,7 @@ return {
         "pylsp",
         "volar",
         "eslint",
+        "rust_analyzer",
       },
     })
 
@@ -50,6 +51,7 @@ return {
         "black", -- python formatter
         "pylint",
         "eslint_d",
+        "rustfmt",
       },
     })
   end,

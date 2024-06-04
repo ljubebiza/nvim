@@ -34,7 +34,7 @@ return {
     keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-    keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find string in the current file" })
+    keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find string in the current file" })
     keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
   end,

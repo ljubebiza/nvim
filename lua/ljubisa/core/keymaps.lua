@@ -24,3 +24,14 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- copy curreline up or down
 keymap.set("n", "<leader>tj", ":.t.<CR>", { noremap = true, silent = true, desc = "copy line down" })
 keymap.set("n", "<leader>tk", ":.t0<CR>", { noremap = true, silent = true, desc = "copy line up" })
+
+-- Keep window centered when going up/down
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- Move block
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Block Down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Block Up" })
