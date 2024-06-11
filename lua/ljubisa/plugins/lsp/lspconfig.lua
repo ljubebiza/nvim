@@ -78,11 +78,31 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    local function organize_imports()
+      local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = "",
+      }
+      vim.lsp.buf.execute_command(params)
+    end
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
+        })
+      end,
+      ["tsserver"] = function()
+        lspconfig["tsserver"].setup({
+          capabilities = capabilities,
+          commands = {
+            OrganizeImports = {
+              organize_imports,
+              desc = "Organize Imports",
+            },
+          },
         })
       end,
       --       ["svelte"] = function()
@@ -107,13 +127,13 @@ return {
       --           filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
       --         })
       --       end,
-      --       ["emmet_ls"] = function()
-      --         -- configure emmet language server
-      --         lspconfig["emmet_ls"].setup({
-      --           capabilities = capabilities,
-      --           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-      --         })
-      --       end,
+      -- ["emmet_ls"] = function()
+      --   -- configure emmet language server
+      --   lspconfig["emmet_ls"].setup({
+      --     capabilities = capabilities,
+      --     filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+      --   })
+      -- end,
       --       ["lua_ls"] = function()
       --         -- configure lua server (with special settings)
       --         lspconfig["lua_ls"].setup({
