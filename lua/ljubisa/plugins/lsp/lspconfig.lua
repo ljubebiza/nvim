@@ -105,21 +105,6 @@ return {
           },
         })
       end,
-      --       ["svelte"] = function()
-      --         -- configure svelte server
-      --         lspconfig["svelte"].setup({
-      --           capabilities = capabilities,
-      --           on_attach = function(client, bufnr)
-      --             vim.api.nvim_create_autocmd("BufWritePost", {
-      --               pattern = { "*.js", "*.ts" },
-      --               callback = function(ctx)
-      --                 -- Here use ctx.match instead of ctx.file
-      --                 client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-      --               end,
-      --             })
-      --           end,
-      --         })
-      --       end,
       --       ["graphql"] = function()
       --         -- configure graphql language server
       --         lspconfig["graphql"].setup({
@@ -134,23 +119,23 @@ return {
       --     filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
       --   })
       -- end,
-      --       ["lua_ls"] = function()
-      --         -- configure lua server (with special settings)
-      --         lspconfig["lua_ls"].setup({
-      --           capabilities = capabilities,
-      --           settings = {
-      --             Lua = {
-      --               -- make the language server recognize "vim" global
-      --               diagnostics = {
-      --                 globals = { "vim" },
-      --               },
-      --               completion = {
-      --                 callSnippet = "Replace",
-      --               },
-      --             },
-      --           },
-      --         })
-      --       end,
+      ["lua_ls"] = function()
+        -- configure lua server (with special settings)
+        lspconfig["lua_ls"].setup({
+          capabilities = capabilities,
+          settings = {
+            Lua = {
+              -- make the language server recognize "vim" global
+              diagnostics = {
+                globals = { "vim" },
+              },
+              completion = {
+                callSnippet = "Replace",
+              },
+            },
+          },
+        })
+      end,
       ["volar"] = function()
         lspconfig["volar"].setup({
           init_options = {
